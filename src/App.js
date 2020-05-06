@@ -18,7 +18,7 @@ class App extends Component {
   render(){
     let routes = (
       <Switch>
-      <Route path="/" exact component={BurgerBuilder}/>
+      <Route path={process.env.PUBLIC_URL + '/auth'} exact component={BurgerBuilder}/>
      <Route path = {process.env.PUBLIC_URL + '/auth'}  component={Auth}/>
      <Redirect to = {process.env.PUBLIC_URL + '/'}/>
      </Switch>

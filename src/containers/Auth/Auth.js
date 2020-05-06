@@ -42,7 +42,7 @@ class Auth extends Component {
     }
 
     componentDidMount(){
-        if(!this.props.buildingBurger && this.props.authRedirectPath !== "/" ){
+        if(!this.props.buildingBurger && this.props.authRedirectPath !== `${process.env.PUBLIC_URL + '/'}` ){
             this.props.onSetAuthRedirectPath();
         }
     }
@@ -132,7 +132,7 @@ const mapStatetoProps =state=>{
 const mapDispatchToProps =dispatch =>{
     return {
         onAuth:(email,password,isSignup)=>dispatch(actions.auth(email,password,isSignup)),
-        onSetAuthRedirectPath:()=>dispatch(actions.setAuthRedirectPath("/"))
+        onSetAuthRedirectPath:()=>dispatch(actions.setAuthRedirectPath(`${process.env.PUBLIC_URL + '/'}`))
     }
 }
 export default connect(mapStatetoProps,mapDispatchToProps)(Auth)

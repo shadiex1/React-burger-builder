@@ -31,4 +31,4 @@ const app=(
 ReactDOM.render(app, document.getElementById('root'));
 
 
-serviceWorker.unregister();
+serviceWorker.register();

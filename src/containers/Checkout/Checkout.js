@@ -11,20 +11,20 @@ class Checkout extends Component{
         this.props.history.goBack();
     }
     checkoutContinuedHandler=()=>{
-        this.props.history.replace("/checkout/contact-data");
+        this.props.history.replace(`${process.env.PUBLIC_URL + '/checkout/contact-data'}`);
     }
     render(){
-        let summary = <Redirect to="/"/>
+        let summary = <Redirect to={process.env.PUBLIC_URL + '/'}/>
         
         if(this.props.ings){
-            const purchasedRedirect= this.props.purchased ?<Redirect to= "/"/> : null
+            const purchasedRedirect= this.props.purchased ?<Redirect to= {process.env.PUBLIC_URL + '/'}/> : null
             summary = (<div>
                 {purchasedRedirect}
                 <CheckoutSummary
                     checkoutCancelled={this.checkoutCancelledHandler}
                     checkoutContinued={this.checkoutContinuedHandler}
                  ingredients={this.props.ings}/>
-                 <Route path={"/checkout/contact-data"} 
+                 <Route path={process.env.PUBLIC_URL + '/checkout/contact-data'} 
                  component={ContactData}/> </div>)
              
         }

@@ -39,8 +39,8 @@ class BurgerBuilder extends Component {
             purchasing:true
         })
         }else {
-            this.props.onSetAuthRedirectPath("/checkout");
-            this.props.history.push("/auth")
+            this.props.onSetAuthRedirectPath(`${process.env.PUBLIC_URL + '/checkout'}`);
+            this.props.history.push(`${process.env.PUBLIC_URL + '/auth'}`)
         }
         
     }
@@ -52,7 +52,7 @@ class BurgerBuilder extends Component {
     purchaseContinueHandler=()=>{
    
         this.props.onInitPurchase()
-    this.props.history.push("/checkout")
+    this.props.history.push(`${process.env.PUBLIC_URL + '/checkout'}`)
     }
     render(){
         let orderSummary=null

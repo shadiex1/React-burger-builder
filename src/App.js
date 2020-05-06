@@ -19,19 +19,19 @@ class App extends Component {
     let routes = (
       <Switch>
       <Route path="/" exact component={BurgerBuilder}/>
-     <Route path = "/auth"  component={Auth}/>
-     <Redirect to = "/"/>
+     <Route path = {process.env.PUBLIC_URL + '/auth'}  component={Auth}/>
+     <Redirect to = {process.env.PUBLIC_URL + '/'}/>
      </Switch>
      )
     if (this.props.isAuthenticated){
       routes = (
         <Switch>
-         <Route path="/checkout" component={Checkout}/>
-         <Route path="/orders"  component={Orders}/> 
-         <Route path="/" exact component={BurgerBuilder}/>
-         <Route path = "/logout"  component={Logout}/>
-         <Route path = "/auth"  component={Auth}/>
-         <Redirect to = "/"/>
+         <Route path={process.env.PUBLIC_URL + '/checkout'} component={Checkout}/>
+         <Route path={process.env.PUBLIC_URL + '/orders'}  component={Orders}/> 
+         <Route path={process.env.PUBLIC_URL + '/'} exact component={BurgerBuilder}/>
+         <Route path = {process.env.PUBLIC_URL + '/logout'}  component={Logout}/>
+         <Route path = {process.env.PUBLIC_URL + '/auth'}  component={Auth}/>
+         <Redirect to = {process.env.PUBLIC_URL + '/'}/>
 
          </Switch>
          )
